@@ -4,9 +4,9 @@ import Link from 'next/link';
 type ProductProps = {
     products: any[];
 }
-const url = 'https://6110f09bc38a0900171f0ed0.mockapi.io/products';
+// const url = 'https://6110f09bc38a0900171f0ed0.mockapi.io/products';
 
-const fetcher = async (url) => await (await fetch(url)).json()
+// const fetcher = async  => await (await fetch(url)).json()
 //client
 
 // const ProductPage = ({products}: ProductProps) => {
