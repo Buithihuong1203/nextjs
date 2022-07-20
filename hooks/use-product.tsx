@@ -1,6 +1,6 @@
 import React from 'react'
 import useSWR from 'swr'
-import { add, removeItem } from '../api/product';
+import { add, removeItem, updateItem } from '../api/product';
 
 
 const useProducts = () => {
@@ -12,15 +12,23 @@ const useProducts = () => {
     }
 
     //update
+    const update = async(product: any) => {
+        await updateItem(product);
+        const newProduct = data.map((item : any) => item.id === data.id ? product : item);
+        mutate(newProduct);
+        console.log(newProduct)
+    }
     //delete 
     const remove = async (id: any) => {
         await removeItem(id);
         const newProducts = data.filter((item: any) => item.id != id);
         mutate(newProducts);
+        
     };
     return {
         data,
         error,
+        update,
         create,
         remove,
     }
